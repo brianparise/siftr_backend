@@ -1,0 +1,69 @@
+@startuml
+entity Cases{
+    *id : BIGINT<<PK>>
+    created_on : NOT NULL
+
+}
+
+entity EpicCases{
+    *id: BIGINT<<PK>>
+    case_id : BIGINT<<FK>>
+    stored_on : DATETIME
+    csn: VARCHAR
+    insuranceName
+    insuranceGroup...
+    any patient related data, like data related to hard stops
+    any case data, e.g., flowsheet.
+}
+
+entity OneCases{
+    *id: BIGINT<<PK>>
+    case_id : BIGINT<<FK>>
+    stored_on : DATETIME
+    order_id: VARCHAR
+    patient data
+    case data
+}
+
+entity AppCaseStates{
+    *id: BIGINT<<PK>>
+    case_id : BIGINT
+    stored_on : DATETIME
+    assigned_to: BIGINT<<FK>>
+    algorithmCalculationDetails... (revenue...)
+}
+
+
+
+entity AppUsers{
+    *id: BIGINT<<PK>>
+    email: VARCHAR
+    name: VARCHAR
+    role_id: BIGINT<<FK>>
+}
+
+entity Roles{
+    *id: BIGINT<<PK>>
+    name : VARCHAR
+}
+
+entity ChatMessages{
+    * id: BIGINT<<PK>>
+    case_id: BIGINT
+    sender_id: BIGINT
+    content: TEXT
+    sent_on: DATETIME
+
+}
+
+Cases ||--|{ EpicCases
+Cases ||--|{ OneCases
+Cases ||--|{ AppCaseStates
+AppCaseStates }|--|{ AppUsers
+AppUsers }|--|| Roles
+
+ChatMessages }|--|| AppUsers
+ChatMessages }|--|| Cases
+
+
+@enduml

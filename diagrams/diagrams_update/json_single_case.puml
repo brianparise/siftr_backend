@@ -1,0 +1,31 @@
+@startjson
+{
+    "caseId": 20918324098,
+    "patientName": "Victor Cornet",
+    "orderDate": "2024-03-04 10:00:00",
+    "caseStatus": "New",
+    "facilityName": null,
+    "surgeryDate": "2024-03-20 10:00:00",
+    "cptCodes": [{"code": 2032354, "label": "tehanute"}, {"code": 2032354, "label": "tehanute"}],
+    "providerName": "Stephanie Pruitt",
+    "specialNeeds": [
+        "special need 1", "special need 2"
+    ],
+    "assignedTo": "Abhinay",
+    "attentionNeeded": true,
+    "duration": "4 hours",
+    "priority": "Important",
+    "hardStops": [
+        {
+            "id": "patient.comorbidities.over425lbs",
+            "label": "Over 425 lbs",
+            "value": true
+        },
+        {
+            "id": "patient.comorbidities.hemophilia",
+            "label": "Hemophilia",
+            "value": true
+        }
+    ]
+}
+@endjson

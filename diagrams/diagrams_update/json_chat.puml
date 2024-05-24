@@ -1,0 +1,17 @@
+@startjson
+{
+    "caseId": 20918324098,
+    "messages":[
+        {
+            "date": "2024-04-01T18:25:43.511Z",
+            "sender": "Victor",
+            "message": "I'm the best!"
+        },
+        {
+            "date": "2024-04-02T18:25:43.511Z",
+            "sender": "Hung-Yeh",
+            "message": "I'm the second best!"
+        }
+    ]
+}
+@endjson

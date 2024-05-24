@@ -1,0 +1,52 @@
+@startuml
+entity Case{
+    *id : BIGINT<<PK>>
+    created_on : NOT NULL
+
+}
+
+entity EpicCase{
+    *case_id : BIGINT<<FK>>
+    *stored_on : DATETIME
+    csn: VARCHAR
+    insuranceName
+    insuranceGroup...
+    any patient related data, like data related to hard stops
+    any case data, e.g., flowsheet.
+}
+
+entity OneCase{
+    *case_id : BIGINT<<FK>>
+    *stored_on : DATETIME
+    order_id: VARCHAR
+    patient data
+    case data
+}
+
+entity AppCaseState{
+    *case_id : BIGINT
+    *stored_on : DATETIME
+    assigned_to: BIGINT<<FK>>
+    algorithmCalculationDetails... (revenue...)
+}
+
+entity AppUser{
+    *id: BIGINT<<PK>>
+    email: VARCHAR
+    name: VARCHAR
+    role_id: BIGINT<<FK>>
+}
+
+entity Role{
+    *id: BIGINT<<PK>>
+    name : VARCHAR
+}
+
+Case }|--|| EpicCase
+Case }|--|| OneCase
+Case }|--|| AppCaseState
+AppCaseState ||--|{ AppUser
+AppUser ||--|{ Role
+
+
+@enduml
